@@ -1,16 +1,20 @@
 import React from "react";
-import Button from "./components/Elements/Button/Button";
-import Input from "./components/Elements/Input";
+import LoginPage from "./pages/login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RegisterPage from "./pages/register";
+import NotFound from "./pages/404";
 
 const App = () => {
   return (
-    <>
-      <div className="flex justify-center bg-blue-600 min-h-screen items-center">
-        <div className="flex gap-x-3">
-          <Button variant="bg-red-700">Login</Button>
-          <Button variant="bg-slate-700">Logout</Button>
-        </div>
-      </div>
+    <>  
+        <Router>
+            <Routes>
+              <Route path="/" element={<LoginPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+        </Router>
     </>
   );
 };
