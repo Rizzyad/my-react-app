@@ -9,24 +9,32 @@ const AuthLayouts = ({ children, title, type }) => {
           Welcome, Please enter your details
         </p>
         {children}
-        {type === "login" ? (
-          <p className="text-center text-sm mt-2">
-            Don't have an account?{" "}
-            <Link to="/register" className=" font-bold text-blue-600">
-              register here
-            </Link>
-          </p>
-        ) : (
-          <p className="text-center mt-2">
-            Already have an account?{" "}
-            <Link to="/login" className="text-blue-600">
-              login here
-            </Link>
-          </p>
-        )}
+        <Navigation type={type} />
       </div>
     </div>
   );
+};
+
+const Navigation = ({ type }) => {
+  if (type === "login") {
+    return (
+      <p className="text-center text-sm mt-2">
+        Don't have an account?{" "}
+        <Link to="/register" className=" font-bold text-blue-600">
+          register here
+        </Link>
+      </p>
+    );
+  } else {
+    return (
+      <p className="text-center mt-2">
+        Already have an account?{" "}
+        <Link to="/login" className="text-blue-600">
+          login here
+        </Link>
+      </p>
+    );
+  }
 };
 
 export default AuthLayouts;
