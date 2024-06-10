@@ -10,15 +10,15 @@ const AuthLayouts = ({ children, title, type }) => {
         </p>
         {children}
         {type === "login" ? (
-          <p className="text-center mt-2">
-            dont have an account?{" "}
-            <Link to="/register" className="text-blue-600">
+          <p className="text-center text-sm mt-2">
+            Don't have an account?{" "}
+            <Link to="/register" className=" font-bold text-blue-600">
               register here
             </Link>
           </p>
         ) : (
           <p className="text-center mt-2">
-            already have an account?{" "}
+            Already have an account?{" "}
             <Link to="/login" className="text-blue-600">
               login here
             </Link>

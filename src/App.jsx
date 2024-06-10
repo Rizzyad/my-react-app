@@ -1,20 +1,28 @@
 import React from "react";
 import LoginPage from "./pages/login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import RegisterPage from "./pages/register";
-import NotFound from "./pages/404";
+import ErrorPage from "./pages/404";
 
 const App = () => {
+    const router  = createBrowserRouter ([
+      {
+        path: "/",
+        element: <h1>Hello World</h1>,
+        errorElement: <ErrorPage />
+      },
+      {
+        path: "/login",
+        element: <LoginPage />
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />
+      }
+    ])
   return (
     <>  
-        <Router>
-            <Routes>
-              <Route path="/" element={<LoginPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-        </Router>
+        <RouterProvider router={router} />
     </>
   );
 };
