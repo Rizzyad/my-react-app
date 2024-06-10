@@ -1,16 +1,16 @@
 import Button from "../Elements/Button/Button";
 
-const CartProduct = ({ children }) => {
+const CardProduct = ({ children }) => {
   return (
     <>
-      <div className="w-full max-w-xs bg-gray-800 border border-gray-700 rounded-lg shadow mx-2 flex flex-col justify-between">
+      <div className="w-full max-w-xs bg-gray-800 border border-gray-700 rounded-lg shadow mx-4 my-3 flex flex-col justify-between">
         {children}
       </div>
     </>
   );
 };
 
-export default CartProduct;
+export default CardProduct;
 
 const Body = ({title, children}) => {
   return (
@@ -25,11 +25,11 @@ const Body = ({title, children}) => {
   );
 };
 
-const Footer = ({price}) => {
+const Footer = ({price, handleAddToCart, id}) => {
   return (
     <div className="flex items-center justify-between px-5 pb-5">
-      <span className="text-xl font-bold text-white">{price}</span>
-      <Button classname="bg-blue-600">Add To Cart</Button>
+      <span className="text-xl font-bold text-white">Rp {price.toLocaleString("id-ID", {styles: "currency", currency: "IDR"})}</span>
+      <Button classname="bg-blue-600" onClick={() => handleAddToCart(id)}>Add To Cart</Button>
     </div>
   );
 };
@@ -46,6 +46,6 @@ const Header = ({image}) => {
   );
 };
 
-CartProduct.Header = Header;
-CartProduct.Body = Body;
-CartProduct.Footer = Footer;
+CardProduct.Header = Header;
+CardProduct.Body = Body;
+CardProduct.Footer = Footer;
