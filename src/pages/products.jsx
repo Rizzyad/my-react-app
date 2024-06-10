@@ -1,6 +1,7 @@
 import Button from "../components/Elements/Button/Button";
 import CartProduct from "../components/Fragments/CartProduct";
 import { useNavigate } from "react-router-dom";
+import Counter from "../components/Fragments/Counter";
 
 const products = [
   {
@@ -64,6 +65,9 @@ const ProductPage = () => {
             <CartProduct.Footer price={product.price} />
           </CartProduct>
         ))}
+      </div>
+      <div className="flex w-100 justify-center">
+        <Counter />
       </div>
     </>
   );
