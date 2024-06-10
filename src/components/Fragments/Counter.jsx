@@ -6,6 +6,17 @@ class Counter extends React.Component {
     this.state = {
       count: 0,
     };
+
+    console.log("constructor");
+  }
+
+  componentDidMount() {
+    this.setState({ count: 1 });
+    console.log("componentDidMount");
+  }
+
+  componentDidUpdate() {
+    console.log("ComponentDidUpdate");
   }
 
   render() {
@@ -18,6 +29,7 @@ class Counter extends React.Component {
         >
           +
         </button>
+        {console.log("render")}
       </div>
     );
   }
